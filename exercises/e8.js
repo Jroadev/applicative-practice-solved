@@ -7,12 +7,11 @@ import { data } from "../data/data";
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
   return data.planets
-  .filter((planet) => {
-    return planet.moons;
-  })
-  .map((planet) => {
-    return planet.name;
-  });
+    .filter(
+      (planet) => {
+      return planet.moons && planet.moons.includes(moonName);
+    }
+    )[0].name;
 }
 
 
