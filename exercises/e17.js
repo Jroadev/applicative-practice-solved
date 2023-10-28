@@ -8,16 +8,37 @@
  * * maxBy(): Return the element where the callback function on that element yields the highest value
  */
 
+const youngestPerson = minBy(
+  [
+    { name: "jon", age: 29 },
+    { name: "peter", age: 30 },
+    { name: "andrey", age: 22 },
+  ],
+  (person) => person.age
+); // gives us { name: "andrey", age: 22 }
+
 export function minBy(array, cb) {
   // Your code goes here...
-
+  let min = array[0];
+  for (let val of array) {
+    if (cb(val) < cb(min)) {
+      min = val;
+    }
+  }
+  return min
 }
+
 
 export function maxBy(array, cb) {
   // Your code goes here...
-
+  let max = array[0];
+  for (let val of array) {
+    if (cb(val) > cb(max)) {
+      max = val;
+    }
+  }
+  return max
 }
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-17"

@@ -11,8 +11,13 @@
 
 export function find(array, callback) {
   // Your code goes here...
-  
+  for (const val of array) {
+    if (callback(val)) {
+      return val;
+    }
+  }
 }
+
 
 
 // === TEST YOURSELF ===
